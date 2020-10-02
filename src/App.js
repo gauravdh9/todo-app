@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Components/Input";
 const data = [
   {
-    link: "https://github.com/gauravdh9",
+    link: "https://github.com/gauravdh9/todo-app",
     css: {
       position: "fixed",
       top: 0,
