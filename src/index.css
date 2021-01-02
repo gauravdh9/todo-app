@@ -4,7 +4,7 @@
 
 @import "tailwindcss/utilities";
 
-@import url(//db.onlinewebfonts.com/c/2c3b7d5c237e04877579711ed87025cc?family=SF+Collegiate);
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
 #root {
   height: 100vh;
@@ -17,11 +17,15 @@
   margin-left: 10px;
 }
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(to top, #134e5e, #71b280);
-    border-radius: 10px;
-    box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
+  background: linear-gradient(to top, #134e5e, #71b280);
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
     inset -2px -2px 2px rgba(0, 0, 0, 0.25);
 }
 ::-webkit-scrollbar-track {
-    background: linear-gradient(to right, #141e30, #243b55);
+  background: linear-gradient(to right, #141e30, #243b55);
+}
+
+.fonts {
+  font-family: "Raleway", sans-serif;
 }

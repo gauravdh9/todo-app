@@ -9,7 +9,7 @@ const List = styled.div`
   ${List}::-webkit-scrollbar {
     height: 10px;
     width: 10px;
-    margin-left:10px;
+    margin-left: 10px;
   }
   ${List}::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, #141e30, #243b55);
@@ -18,13 +18,6 @@ const List = styled.div`
       inset -2px -2px 2px rgba(0, 0, 0, 0.25);
   }
   ${List}::-webkit-scrollbar-track {
-    // background: linear-gradient(
-    //   90deg,
-    //   #201c29,
-    //   #201c29 1px,
-    //   #17141d 0,
-    //   #17141d
-    // );
   }
 `;
 const Input = () => {
@@ -32,6 +25,11 @@ const Input = () => {
   const [data, setData] = useState([]);
   const [string, setString] = useState("");
   useEffect(() => {
+    if (localStorage.getItem("data")) {
+      m = JSON.parse(localStorage.getItem("data"));
+    } else m = [];
+    setData(m);
+
     gsap.fromTo(
       ".Form",
       { opacity: 0, yPercent: -100 },
@@ -40,13 +38,16 @@ const Input = () => {
   }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (localStorage.getItem("data")) {
+      m = JSON.parse(localStorage.getItem("data"));
+    } else m = [];
     if (string == "") {
       toast("Add atleast one task ");
       return;
     }
-    m = [...data];
     m.unshift(string);
     setData(m);
+    localStorage.setItem("data", JSON.stringify(m));
     setString("");
   };
   return (
@@ -70,7 +71,7 @@ const Input = () => {
           type="submit"
           style={{ minWidth: "100px" }}
         >
-          ➕ Add Task{" "}
+          ➕ Add Task
         </button>
       </form>
 
@@ -84,6 +85,7 @@ const Input = () => {
                 var x = [...data];
                 x.splice(index, 1);
                 setData(x);
+                localStorage.setItem("data", JSON.stringify(x));
               }}
             />
           ))}

@@ -13,13 +13,13 @@ const data = [
 const App = () => {
   return (
     <div className="flex flex-col text-center w-full bg-red-500 p-8">
-      <div class="text-center text-6xl leading-none tracking-tight" style={{fontFamily:"SF Collegiate"}}>
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-600">
+      <div className="text-center text-6xl leading-none tracking-tight fonts">
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-600">
           MY TODO APP
         </span>
       </div>
-      {data.map((item) => (
-        <a href={item.link}>
+      {data.map((item, index) => (
+        <a href={item.link} key={index}>
           <img
             src={require("./Images/github-corner-left.svg")}
             style={item.css}
@@ -28,7 +28,6 @@ const App = () => {
         </a>
       ))}
       <Input />
-     
     </div>
   );
 };
